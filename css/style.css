@@ -191,6 +191,48 @@ figcaption {
   text-decoration: none;
 }
 
+input,textarea {
+  padding: 10px;
+  border: 1px solid #E5E5E5;
+  width: 200px;
+  color: #999;
+  box-shadow: rgba(0,0,0,0.1) 0 0 8px;
+  -moz-box-shadow: rgba(0,0,0,0.1) 0 0 8px;
+  -webkit-box-shadow: rgba(0,0,0,0.1) 0 0 8px;
+}
+
+textarea {
+  width: 400px;
+  height: 100px;
+  max-width: 400px;
+  line-height: 18px;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.form label {
+  margin-left: 10px;
+  color: #999;
+  letter-spacing: 2px;
+}
+
+.submit input {
+  width: 100px;
+  height: 40px;
+  background-color: #474E69;
+  color: #FFF;
+  font-size: 18px;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.alert {
+  display: none;
+  letter-spacing: 2px;
+}
+
 .dashboard-post {
   text-align: center;
   width: 100%;

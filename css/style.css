@@ -219,3 +219,59 @@ figcaption {
 #map {
 /*  display: none;
 */}
+
+footer {
+  height: 70px;
+  width: 100%;
+  padding-top: 15px;
+  background-color: #f8f8f8;
+  position: relative;
+  clear: both;
+}
+
+.footer-inline {
+  list-style-type: none;
+}
+
+.footer-inline li {
+  display: inline;
+  margin-left: 20px;
+  letter-spacing: 2px;
+}
+
+.github-link {
+  text-decoration: none;
+  color: #000;
+  margin-left: 20px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.github-link:hover {
+  -webkit-transform: scale(1.20);
+  -moz-transform: scale(1.20);
+  -ms-transform: scale(1.20);
+  -o-transform: scale(1.20);
+  transform: scale(1.20);
+}
+
+.linkedin-link {
+  text-decoration: none;
+  color: #000;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.linkedin-link:hover {
+  -webkit-transform: scale(1.20);
+  -moz-transform: scale(1.20);
+  -ms-transform: scale(1.20);
+  -o-transform: scale(1.20);
+  transform: scale(1.20);
+}

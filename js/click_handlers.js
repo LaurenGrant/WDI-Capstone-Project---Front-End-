@@ -11,3 +11,13 @@ $('#test').click(function() {
   $('#register-prompt').hide();
   $('#signin-prompt').hide();
 });
+
+$('.logout-link').click(function() {
+  $('#hero').show();
+  $('#loan-items-examples').show();
+  $('#user-dashboard').hide();
+  $('#map').hide();
+  $('#register-prompt').show();
+  $('#signin-prompt').show();
+  $('.logout-link').hide();
+});

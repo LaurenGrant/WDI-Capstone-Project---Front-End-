@@ -109,3 +109,84 @@ header {
 .intro-text hr {
   margin: 0 20%;
 }
+
+.profiles {
+  background: #C6C6C6;
+  padding: 10px;
+  text-align: center;
+}
+
+.cards {
+  overflow: hidden;
+}
+
+.card {
+  float: left;
+  width: 33%;
+  list-style-type: none;
+}
+
+.card-dashboard {
+  float: left;
+  width: 25%;
+  list-style-type: none;
+}
+
+.card img {
+  max-width: 100%;
+}
+
+.card-dashboard img {
+  max-width: 100%;
+}
+
+.card article {
+  background: #fff;
+  margin: 10px;
+  padding: 10px;
+}
+
+.card-dashboard article {
+  background: #fff;
+  margin: 10px;
+  padding: 10px;
+}
+
+figcaption {
+  letter-spacing: 2px;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.borrow-request {
+  display: block;
+  background: #666;
+  padding: 1px 4px;
+  border-radius: 100px;
+  font-size: 25px;
+  margin: 0 5px 5px 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.tags {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.tags li {
+  float: left;
+  list-style-type: none;
+}
+
+.tags li a {
+  display: block;
+  background: #666;
+  padding: 1px 12px;
+  border-radius: 100px;
+  font-size: 15px;
+  margin: 0 5px 5px 0;
+  color: #fff;
+  text-decoration: none;
+}

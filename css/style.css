@@ -262,15 +262,15 @@ textarea {
 }
 
 #user-dashboard {
-/*display: none;*/
+  display: none;
 }
 
 #map {
-/*  display: none; */
+  display: none;
 }
 
 /* Footer */
-/* Dashboard Page / User View */
+
 footer {
   height: 70px;
   width: 100%;

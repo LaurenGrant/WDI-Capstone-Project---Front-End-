@@ -18,9 +18,9 @@
         <div class="collapse navbar-collapse" id=
         "bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
+            <li id="signin-prompt" class="dropdown">
               <a class="dropdown-toggle signin-link" data-toggle="dropdown"
-              href="#">Sign In<strong class="caret"></strong></a>
+              href="#" id="test">Sign In<strong class="caret"></strong></a>
               <div class="dropdown-menu">
                 <form accept-charset="UTF-8" id="login-form" method="post"
                 name="login-form">
@@ -33,10 +33,10 @@
                 </form>
               </div>
             </li>
-            <li>
+            <li id="register-prompt">
               <a class="register-link" href="#services">Register</a>
             </li>
-            <li>
+            <li id="logout-prompt">
               <a class="logout-link" href="#contact">Logout</a>
             </li>
           </ul>
@@ -436,6 +436,6 @@
 </body>
 <script type="text/javascript" src="js/vendor/jquery-2.1.4.js"></script>
 
-<script src="js/click-handlers.js" type="text/javascript"></script>
+<script src="js/click_handlers.js" type="text/javascript"></script>
 
 </html>

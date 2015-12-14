@@ -2,11 +2,12 @@
 
 /*---- Click Handlers ---- */
 
-$('#signin-link').click(function() {
+$('#test').click(function() {
   $('#hero').hide();
   $('#loan-items-examples').hide();
   $('#user-dashboard').show();
   $('#map').show();
-  // $('#intro-message').hide();
-  // $('#enter-event').hide();
+  $('.logout-link').show();
+  $('#register-prompt').hide();
+  $('#signin-prompt').hide();
 });

@@ -87,3 +87,25 @@ nav {
 .registration-popup {
   display: none;
 }
+
+header {
+  text-align: center;
+  color: #fff;
+  background: #18bc9c;
+  padding-top: 70px;
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+
+.intro-text {
+  margin-top: 100px;
+}
+
+.intro-text p {
+  margin: 0 20%;
+}
+
+.intro-text hr {
+  margin: 0 20%;
+}

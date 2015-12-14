@@ -60,3 +60,30 @@ nav {
   -o-transform: scale(1.20);
   transform: scale(1.20);
 }
+
+.dropdown-menu {
+  display: none;
+}
+
+.logout-link {
+  display: none;
+  text-decoration: none;
+  color: #000;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.logout-link:hover {
+  -webkit-transform: scale(1.20);
+  -moz-transform: scale(1.20);
+  -ms-transform: scale(1.20);
+  -o-transform: scale(1.20);
+  transform: scale(1.20);
+}
+
+.registration-popup {
+  display: none;
+}

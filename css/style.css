@@ -2,6 +2,8 @@ body {
   font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
 }
 
+/* Navbar */
+
 nav {
   width: 100%;
   height: 70px;
@@ -25,6 +27,7 @@ nav {
   margin-right: 20px;
   letter-spacing: 2px;
 }
+
 .signin-link {
   text-decoration: none;
   color: #000;
@@ -87,6 +90,8 @@ nav {
 .registration-popup {
   display: none;
 }
+
+/* Home Page / Visitor View */
 
 header {
   text-align: center;
@@ -233,6 +238,8 @@ textarea {
   letter-spacing: 2px;
 }
 
+/* Dashboard Page / User View */
+
 .dashboard-post {
   text-align: center;
   width: 100%;
@@ -259,9 +266,11 @@ textarea {
 }
 
 #map {
-/*  display: none;
-*/}
+/*  display: none; */
+}
 
+/* Footer */
+/* Dashboard Page / User View */
 footer {
   height: 70px;
   width: 100%;

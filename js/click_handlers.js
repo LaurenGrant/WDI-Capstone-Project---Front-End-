@@ -20,4 +20,10 @@ $('.logout-link').click(function() {
   $('#register-prompt').show();
   $('#signin-prompt').show();
   $('.logout-link').hide();
+  $('.logout-link').hide();
+});
+
+$('#register-prompt').click(function() {
+  $('.test-reg-form').show();
+  $('.intro-text').hide();
 });

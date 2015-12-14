@@ -91,6 +91,23 @@ nav {
   display: none;
 }
 
+.test-reg-form {
+  display: none;
+  text-align: center;
+  margin-top: 100px;
+  margin-left: 25%;
+  background-color: rgba(0,0,0,0.075);
+  width: 50%;
+  min-width: 250px;
+  height: 300px;
+}
+
+.popup-registration {
+  text-align: center;
+  padding-top: 30px;
+  position: relative;
+}
+
 /* Home Page / Visitor View */
 
 header {

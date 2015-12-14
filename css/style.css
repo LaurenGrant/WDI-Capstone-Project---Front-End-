@@ -1,0 +1,27 @@
+body {
+  font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+}
+
+nav {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.navbar-style {
+  background-color: rgba(0,0,0,0.075);
+  border-color: #e7e7e7;
+}
+
+.navbar-nav li {
+  color: #fff;
+  display: inline;
+  list-style-type: none;
+  float: right;
+  margin-right: 20px;
+  letter-spacing: 2px;
+}

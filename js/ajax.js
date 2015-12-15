@@ -5,6 +5,7 @@ var user = {
   token: null
 };
 
+
 var api = {
 
   url: 'http://localhost:3000',
@@ -145,6 +146,15 @@ $(function() {
       console.log(user);
       $('.token').val(data.user.token);
     };
+    $('#login-form').click(function() {
+      $('#hero').hide();
+      $('#loan-items-examples').hide();
+      $('#user-dashboard').show();
+      $('#map').show();
+      $('.logout-link').show();
+      $('#register-prompt').hide();
+      $('#signin-prompt').hide();
+    });
     e.preventDefault();
     api.login(credentials, cb);
   });
@@ -166,18 +176,18 @@ $(function() {
 //   });
 
 $('#create-item').on('submit', function(e) {
+  e.preventDefault();
   var item = {
     item: {
       title: $('#title').val(),
       zipcode: $('#zipcode').val(),
-      image: $('#image').val(),
+      // image: $('#image').val(),
       description: $('#description').val()
     }
   };
 
-  var token = $('.token').val();
-  e.preventDefault();
-  api.createEvent(item, token, createItemCB);
+  var token = user.token;
+  api.createItem(item, token, createItemCB);
 });
 
   // $('#edit-item').on('submit', function(e) {

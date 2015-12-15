@@ -217,8 +217,8 @@
           type="text"> <label for="name">Posting Title</label></p>
           <p class="zipcode"><input id="zipcode" name="zipcode" placeholder=
           "46327" type="text"> <label for="email">Zip Code</label></p>
-          <p class="image"><input id="image" name="image" placeholder=
-          "EXAMPLE HERE" type="text"> <label for="image">Upload an Image</label></p>
+          <!-- <p class="image"><input id="image" name="image" placeholder=
+          "EXAMPLE HERE" type="text"> <label for="image">Upload an Image</label></p> -->
           <p class="text"><textarea name="text" id="description"placeholder=
           "Write a Short Description of the Item (120 characters or less)"></textarea></p>
           <p class="submit"><input type="submit" value="Create"></p>
@@ -407,6 +407,13 @@
         </ul>
       </div>
     </section>
+<h1> Using Paperclip Over a JSON API </h1>
+    <form id="paperclip-form">
+      <label> featuredImage
+        <input type="file" id="featuredImage"/>
+      </label>
+      <button id="submit">Upload Image</button>
+    </form>
 
     <!-- /User Page View -->
 
@@ -482,6 +489,7 @@
 
 
 </body>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="js/vendor/handlebars-v4.0.5.js"></script>
 <script type="text/javascript" src="js/vendor/jquery-2.1.4.js"></script>
 

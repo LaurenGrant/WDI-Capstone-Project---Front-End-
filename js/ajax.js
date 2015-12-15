@@ -119,6 +119,7 @@ $(function() {
     $('#result').val(JSON.stringify(data, null, 4));
   };
 
+
 /*---- Click Handlers for Register/Login/Logout ---- */
 
 
@@ -163,21 +164,17 @@ $(function() {
     api.login(credentials, cb);
   });
 
-  // $('#logout').on('submit', function(e) {
-  //   var token = $('.token').val();
-  //    // user.token;
-  //   var id = user.id;
-  //   e.preventDefault();
-  //   api.logout(id, token, callback);
-  // });
+  $('.logout-link').on('click', function(e) {
+    e.preventDefault();
+    var token = user.token;
+     // user.token;
+    var id = user.id;
+    api.logout(id, token, callback);
+  });
 
 /*---- Click Handlers for List/Create/Edit Items ---- */
 
-// $('#list-items').on('submit', function(e) {
-//     var token = $('.token').val();
-//     e.preventDefault();
-//     api.listEvents(item, token, callback);
-//   });
+
 
 $('#create-item').on('submit', function(e) {
   e.preventDefault();
@@ -252,7 +249,7 @@ $('#create-item').on('submit', function(e) {
 
     // $('#itemId').val(data.item.id);
     // callback(null, data);
-  });
+
 
   var editItemCB = function editItemCB(err, data) {
     if(err) {
@@ -264,3 +261,6 @@ $('#create-item').on('submit', function(e) {
     callback(null, data);
   };
 
+
+// DO NOT ERASE
+});

@@ -7,7 +7,7 @@ var user = {
 
 var api = {
 
-  url: 'https://localhost:3000',
+  url: 'http://localhost:3000',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -122,9 +122,14 @@ $(function() {
 
 
   $('#register').on('submit', function(e) {
-    var credentials = wrap('credentials', form2object(this));
-    api.register(credentials, callback);
     e.preventDefault();
+    var credentials = wrap('credentials', {
+      email : e.target.email.value,
+      password : e.target.password.value,
+      password_confirmation : e.target.password_confirmation.value
+    });
+    api.register(credentials, callback);
+    console.log(credentials);
   });
 
   $('#login-form').on('submit', function(e) {
@@ -235,3 +240,4 @@ $('#create-item').on('submit', function(e) {
   //   $('#eventId').val(data.event.id);
   //   callback(null, data);
   // };
+});

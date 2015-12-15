@@ -235,18 +235,18 @@
         </div>
       </div>
       <div class="dashboard-content">
-        <ul class="cards">
+        <ul id="put-items-here" class="cards">
           <li class="card-dashboard">
             <article class="profile">
               <figure>
                 <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>
-                  Some Item
-                </figcaption>
+                <figcaption>Some Item</figcaption>
+                <h3>{{zipcode}}</h3>
+                <p>Up to 120 characters of a description will go here.</p>
               </figure>
               <ul class="tags">
                 <li>
-                  <a href="#">Edit</a>
+                  <a href="#" class="edit-item">Edit</a>
                 </li>
                 <li>
                   <a href="#">Delete</a>
@@ -261,13 +261,13 @@
             <article class="profile">
               <figure>
                 <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>
-                  Some Item
-                </figcaption>
+                <figcaption>Some Item</figcaption>
+                <h3>{{zipcode}}</h3>
+                <p>Up to 120 characters of a description will go here.</p>
               </figure>
               <ul class="tags">
                 <li>
-                  <a href="#">Edit</a>
+                  <a href="#" class="edit-item">Edit</a>
                 </li>
                 <li>
                   <a href="#">Delete</a>
@@ -282,13 +282,12 @@
             <article class="profile">
               <figure>
                 <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>
-                  Some Item
-                </figcaption>
+                <figcaption>Some Item</figcaption>
+                <p>Up to 120 characters of a description will go here.</p>
               </figure>
               <ul class="tags">
                 <li>
-                  <a href="#">Edit</a>
+                  <a href="#" class="edit-item">Edit</a>
                 </li>
                 <li>
                   <a href="#">Delete</a>
@@ -303,13 +302,12 @@
             <article class="profile">
               <figure>
                 <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>
-                  Some Item
-                </figcaption>
+                <figcaption>Some Item</figcaption>
+                <p>Up to 120 characters of a description will go here.</p>
               </figure>
               <ul class="tags">
                 <li>
-                  <a href="#">Edit</a>
+                  <a href="#" class="edit-item">Edit</a>
                 </li>
                 <li>
                   <a href="#">Delete</a>
@@ -324,13 +322,12 @@
             <article class="profile">
               <figure>
                 <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>
-                  Some Item
-                </figcaption>
+                <figcaption>Some Item</figcaption>
+                <p>Up to 120 characters of a description will go here.</p>
               </figure>
               <ul class="tags">
                 <li>
-                  <a href="#">Edit</a>
+                  <a href="#" class="edit-item">Edit</a>
                 </li>
                 <li>
                   <a href="#">Delete</a>
@@ -345,13 +342,12 @@
             <article class="profile">
               <figure>
                 <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>
-                  Some Item
-                </figcaption>
+                <figcaption>Some Item</figcaption>
+                <p>Up to 120 characters of a description will go here.</p>
               </figure>
               <ul class="tags">
                 <li>
-                  <a href="#">Edit</a>
+                  <a href="#" class="edit-item">Edit</a>
                 </li>
                 <li>
                   <a href="#">Delete</a>
@@ -366,13 +362,12 @@
             <article class="profile">
               <figure>
                 <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>
-                  Some Item
-                </figcaption>
+                <figcaption>Some Item</figcaption>
+                <p>Up to 120 characters of a description will go here.</p>
               </figure>
               <ul class="tags">
                 <li>
-                  <a href="#">Edit</a>
+                  <a href="#" class="edit-item">Edit</a>
                 </li>
                 <li>
                   <a href="#">Delete</a>
@@ -387,13 +382,12 @@
             <article class="profile">
               <figure>
                 <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>
-                  Some Item
-                </figcaption>
+                <figcaption>Some Item</figcaption>
+                <p>Up to 120 characters of a description will go here.</p>
               </figure>
               <ul class="tags">
                 <li>
-                  <a href="#">Edit</a>
+                  <a href="#" class="edit-item">Edit</a>
                 </li>
                 <li>
                   <a href="#">Delete</a>
@@ -407,13 +401,16 @@
         </ul>
       </div>
     </section>
-<h1> Using Paperclip Over a JSON API </h1>
-    <form id="paperclip-form">
-      <label> featuredImage
-        <input type="file" id="featuredImage"/>
-      </label>
-      <button id="submit">Upload Image</button>
-    </form>
+    <section class="paperclip">
+      <h1> Using Paperclip Over a JSON API </h1>
+      <form id="paperclip-form">
+        <label> featuredImage
+          <input type="file" id="featuredImage"/>
+        </label>
+        <button id="submit">Upload Image</button>
+      </form>
+    </section>
+
 
     <!-- /User Page View -->
 
@@ -445,13 +442,27 @@
 
 <!-- Home Page template -->
 <script id="itemsFeatured" type="text/x-handlebars-template">
- {{#each items}}
-    <li class="card" itemId = '{{_id}}'>
-      <article class="profile">
+
+{{#each items}}
+  <li class="card-dashboard">
+    <article class="profile">
         <figure>
-          <img alt="Some Item" src="http://placehold.it/280">
-          <figcaption index-items-title>{{title}}</figcaption>
+          <img alt="{{title}}" src="http://placehold.it/280">
+          <figcaption>{{title}}</figcaption>
+          <h3>{{zipcode}}</h3>
+          <p>{{description}}</p>
         </figure>
+        <ul class="tags">
+          <li>
+            <a href="#" data-id = '{{id}}' class="edit-item">Edit</a>
+          </li>
+          <li>
+            <a href="#" data-id = '{{id}}'>Delete</a>
+          </li>
+          <li>
+            <a href="#" data-id = '{{id}}'>Mark as Borrowed</a>
+          </li>
+        </ul>
       </article>
     </li>
   {{/each}}
@@ -459,7 +470,7 @@
 
 <!-- Dashboard Item template -->
 
-<script id="blogPostsDashboard" type="text/x-handlebars-template">
+<script id="userItemsDashboard" type="text/x-handlebars-template">
 
   {{#each items}}
     <li class="card-dashboard">

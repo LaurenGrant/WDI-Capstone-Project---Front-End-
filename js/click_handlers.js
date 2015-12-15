@@ -2,15 +2,15 @@
 
 /*---- Click Handlers ---- */
 
-$('#test').click(function() {
-  $('#hero').hide();
-  $('#loan-items-examples').hide();
-  $('#user-dashboard').show();
-  $('#map').show();
-  $('.logout-link').show();
-  $('#register-prompt').hide();
-  $('#signin-prompt').hide();
-});
+// $('#test').click(function() {
+//   $('#hero').hide();
+//   $('#loan-items-examples').hide();
+//   $('#user-dashboard').show();
+//   $('#map').show();
+//   $('.logout-link').show();
+//   $('#register-prompt').hide();
+//   $('#signin-prompt').hide();
+// });
 
 $('.logout-link').click(function() {
   $('#hero').show();
@@ -26,4 +26,8 @@ $('.logout-link').click(function() {
 $('#register-prompt').click(function() {
   $('.test-reg-form').show();
   $('.intro-text').hide();
+});
+
+$('.signin-link').click(function() {
+  $('.dropdown-menu').show();
 });

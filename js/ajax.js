@@ -90,3 +90,148 @@ var api = {
 
 };
 
+// $(document).ready(...
+$(function() {
+  var form2object = function(form) {
+    var data = {};
+    $(form).children().each(function(index, element) {
+      var type = $(this).attr('type');
+      if ($(this).attr('name') && type !== 'submit' && type !== 'hidden') {
+        data[$(this).attr('name')] = $(this).val();
+      }
+    });
+    return data;
+  };
+
+  var wrap = function wrap(root, formData) {
+    var wrapper = {};
+    wrapper[root] = formData;
+    return wrapper;
+  };
+
+  var callback = function callback(error, data) {
+    if (error) {
+      console.error(error);
+      $('#result').val('status: ' + error.status + ', error: ' +error.error);
+      return;
+    }
+    $('#result').val(JSON.stringify(data, null, 4));
+  };
+
+/*---- Click Handlers for Register/Login/Logout ---- */
+
+
+  $('#register').on('submit', function(e) {
+    var credentials = wrap('credentials', form2object(this));
+    api.register(credentials, callback);
+    e.preventDefault();
+  });
+
+  $('#login-form').on('submit', function(e) {
+    var credentials = wrap('credentials', form2object(this));
+    var cb = function cb(error, data) {
+      if (error) {
+        callback(error);
+        return;
+      }
+      callback(null, data);
+      user.id = data.user.id; // stores value of user.id
+      user.token = data.user.token; // stores value of user.token
+      console.log(user);
+      $('.token').val(data.user.token);
+    };
+    e.preventDefault();
+    api.login(credentials, cb);
+  });
+
+  // $('#logout').on('submit', function(e) {
+  //   var token = $('.token').val();
+  //    // user.token;
+  //   var id = user.id;
+  //   e.preventDefault();
+  //   api.logout(id, token, callback);
+  // });
+
+/*---- Click Handlers for List/Create/Edit Items ---- */
+
+// $('#list-items').on('submit', function(e) {
+//     var token = $('.token').val();
+//     e.preventDefault();
+//     api.listEvents(item, token, callback);
+//   });
+
+$('#create-item').on('submit', function(e) {
+  var item = {
+    item: {
+      title: $('#title').val(),
+      zipcode: $('#zipcode').val(),
+      image: $('#image').val(),
+      description: $('#description').val()
+    }
+  };
+
+  var token = $('.token').val();
+  e.preventDefault();
+  api.createEvent(item, token, createItemCB);
+});
+
+  // $('#edit-item').on('submit', function(e) {
+  //   var itemData = {"item":
+  //     {
+  //     title: $('#title').val(),
+  //     zipcode: $('#zipcode').val(),
+  //     image: $('#image').val(),
+  //     description: $('#description').val()
+  //     }
+  //   };
+
+    // var token = $('.token').val();
+    // e.preventDefault();
+
+  //   $.ajax({
+  //     method: 'PATCH',
+  //     url: api.url + '/events/' + eventData.event.id,
+  //     headers: {
+  //       Authorization: 'Token token=' + token
+  //     },
+  //     contentType: 'application/json; charset=utf-8',
+  //     data: JSON.stringify(eventData),
+  //     dataType: 'json'
+  //   })
+  //   .done(function(){
+  //     console.log('updated this event!');
+  //   });
+  //   //api.editEvent(event, token, editEventCB);
+  // });
+  // });
+
+/*---- Callback Functions ---- */
+
+  var createItemCB = function createItemCB(err, data) {
+    if(err) {
+      callback(err);
+      return;
+    }
+
+    $('#itemId').val(data.item.id);
+    callback(null, data);
+  };
+
+  // var listItemCB = function listItemCB(err, data) {
+  //   if(err) {
+  //     callback(err);
+  //     return;
+  //   }
+  //   $('#itemId').val(data.item.id);
+  //   callback(null, data);
+  // };
+
+  // var editEventCB = function editEventCB(err, data) {
+  //   if(err) {
+  //     callback(err);
+  //     return;
+  //   }
+
+  //   $('#eventId').val(data.event.id);
+  //   callback(null, data);
+  // };

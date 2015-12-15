@@ -51,7 +51,7 @@ var api = {
     }, callback);
   },
 
-  listItems: function list(item, token, callback) {
+  listItems: function list(token, callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/items',
@@ -145,7 +145,10 @@ $(function() {
       user.token = data.user.token; // stores value of user.token
       console.log(user);
       $('.token').val(data.user.token);
+
+    api.listItems(token, callback);
     };
+
     $('#login-form').click(function() {
       $('#hero').hide();
       $('#loan-items-examples').hide();
@@ -190,18 +193,52 @@ $('#create-item').on('submit', function(e) {
   api.createItem(item, token, createItemCB);
 });
 
-  // $('#edit-item').on('submit', function(e) {
-  //   var itemData = {"item":
-  //     {
-  //     title: $('#title').val(),
-  //     zipcode: $('#zipcode').val(),
-  //     image: $('#image').val(),
-  //     description: $('#description').val()
-  //     }
-  //   };
+// ('.edit-item').on('click',function(e) {
+//      e.preventDefault();
+//      var itemId = $(e.target).data('itemid');
+//      console.log("itemid" + itemId);
+//      bhApi.getOneItem(itemtId, function (err, data){
+//       if (err){
+//         console.error(err);
+//       } else {
+//         console.log(data);
+//         bhHandlebars.editItem(data);
+//         $(document).ready(function(){
+//           $('#edit-item').on('click', function(e){
+//               e.preventDefault();
+//               var postData = bhHelpers.form2object(this);
+//               var postId = $(e.target).data('postid');
 
-    // var token = $('.token').val();
-    // e.preventDefault();
+//               var callback = function(err, data) {
+//                 if (err){
+//                   console.log("Flagrant system error.");
+//                   console.error}
+//                 else {
+//                   bhHelpers.refreshPosts();
+//                   console.log("You updated a Post!");
+//                 }
+//               };
+//               bhApi.updatePost(postData, postId, callback);
+//            });
+//         });
+//        }
+//       });
+//     });
+
+
+  $('#edit-item').on('submit', function(e) {
+    e.preventDefault();
+    var item = {"item":
+      {
+      title: $('#title').val(),
+      zipcode: $('#zipcode').val(),
+      // image: $('#image').val(),
+      description: $('#description').val()
+      }
+    };
+
+    var token = user.token;
+    api.editItem(item, token, editItemCB);
 
   //   $.ajax({
   //     method: 'PATCH',
@@ -218,7 +255,7 @@ $('#create-item').on('submit', function(e) {
   //   });
   //   //api.editEvent(event, token, editEventCB);
   // });
-  // });
+  });
 
 /*---- Callback Functions ---- */
 
@@ -232,22 +269,27 @@ $('#create-item').on('submit', function(e) {
     callback(null, data);
   };
 
-  // var listItemCB = function listItemCB(err, data) {
-  //   if(err) {
-  //     callback(err);
-  //     return;
-  //   }
-  //   $('#itemId').val(data.item.id);
-  //   callback(null, data);
-  // };
+  var listItemCB = function listItemCB(err, data) {
 
-  // var editEventCB = function editEventCB(err, data) {
-  //   if(err) {
-  //     callback(err);
-  //     return;
-  //   }
+    var wholeDashboardTemplate = Handlebars.compile($("#wholeDashboard").html());
+    newHTML= wholeDashboardTemplate(navData);
+    $('#everythingExceptTemplates').html(newHTML);
 
-  //   $('#eventId').val(data.event.id);
-  //   callback(null, data);
-  // };
+    if(err) {
+      callback(err);
+      return;
+    }
+    $('#itemId').val(data.item.id);
+    callback(null, data);
+  };
+
+  var editItemCB = function editItemCB(err, data) {
+    if(err) {
+      callback(err);
+      return;
+    }
+
+    $('#itemId').val(data.item.id);
+    callback(null, data);
+  };
 });

@@ -32,6 +32,13 @@ $('.signin-link').click(function() {
   $('.dropdown-menu').show();
 });
 
+$('.edit-item').click(function() {
+  $('.create-form').hide();
+  $('.edit-form').show();
+  $('.add-item-here').hide();
+  $('.edit-item-here').show();
+});
+
 // $(document).ready(function(){
 
 //   $('#create-item').on('submit', function(e){

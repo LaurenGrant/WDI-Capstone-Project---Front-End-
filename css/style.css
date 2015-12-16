@@ -255,6 +255,14 @@ textarea {
   letter-spacing: 2px;
 }
 
+.edit-form {
+  display: none;
+}
+
+.edit-item-here {
+  display: none;
+}
+
 /* Dashboard Page / User View */
 
 .dashboard-post {

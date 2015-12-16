@@ -149,18 +149,27 @@
       <h2>Use This Section to Post, Edit, or Delete Items You Would Like to
       Lend</h2>
       <div class="dashboard-post">
-        <h2>Add an Item to Loan</h2>
-      <h1> Using Paperclip Over a JSON API </h1>
-        <form id="create-item">
-          <p class="title"><input id="title" name="title" placeholder="John Doe"
+        <h2 class="add-item-here">Add an Item to Loan</h2>
+        <form id="create-item" class="create-form">
+          <p class="title"><input id="title" name="title" placeholder="Folding Table"
           type="text"> <label for="name">Posting Title</label></p>
           <p class="zipcode"><input id="zipcode" name="zipcode" placeholder=
           "46327" type="text"> <label for="email">Zip Code</label></p>
-          <p class="image"><input type="file" id="item_image" name="item_image" placeholder=
-          "EXAMPLE HERE"> <label for="image">Upload an Image</label></p>
+          <p class="image"><input type="file" id="item_image" name="item_image"> <label for="image">Upload an Image</label></p>
           <p class="text"><textarea name="text" id="description"placeholder=
           "Write a Short Description of the Item (120 characters or less)"></textarea></p>
           <p class="submit"><input type="submit" value="Create"></p>
+        </form>
+        <h2 class="edit-item-here">Edit an Item to Loan</h2>
+        <form id="edit-item" class="edit-form">
+          <p class="title"><input id="edit-title" name="edit-title" placeholder="Folding Table"
+          type="text"> <label for="name">Posting Title</label></p>
+          <p class="zipcode"><input id="edit-zipcode" name="edit-zipcode" placeholder=
+          "46327" type="text"> <label for="email">Zip Code</label></p>
+          <p class="image"><input type="edit-file" id="edit-item_image" name="item_image"> <label for="image">Upload an Image</label></p>
+          <p class="text"><textarea name="edit-text" id="edit-description"placeholder=
+          "Write a Short Description of the Item (120 characters or less)"></textarea></p>
+          <p class="submit"><input type="submit" value="Update"></p>
         </form>
         <div class="col-lg-5 col-md-push-1">
           <div class="col-md-12">
@@ -173,171 +182,32 @@
           </div>
         </div>
       </div>
-      <div class="dashboard-content">
-        <ul id="put-items-here" class="cards">
-          <li class="card-dashboard">
-            <article class="profile">
-              <figure>
-                <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>Some Item</figcaption>
-                <h3>{{zipcode}}</h3>
-                <p>Up to 120 characters of a description will go here.</p>
-              </figure>
-              <ul class="tags">
-                <li>
-                  <a href="#" class="edit-item">Edit</a>
-                </li>
-                <li>
-                  <a href="#">Delete</a>
-                </li>
-                <li>
-                  <a href="#" class="mark-as-borrowed">Mark as Borrowed</a>
-                </li>
-              </ul>
-            </article>
-          </li>
-          <li class="card-dashboard">
-            <article class="profile">
-              <figure>
-                <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>Some Item</figcaption>
-                <h3>{{zipcode}}</h3>
-                <p>Up to 120 characters of a description will go here.</p>
-              </figure>
-              <ul class="tags">
-                <li>
-                  <a href="#" class="edit-item">Edit</a>
-                </li>
-                <li>
-                  <a href="#">Delete</a>
-                </li>
-                <li>
-                  <a href="#">Mark as Borrowed</a>
-                </li>
-              </ul>
-            </article>
-          </li>
-          <li class="card-dashboard">
-            <article class="profile">
-              <figure>
-                <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>Some Item</figcaption>
-                <p>Up to 120 characters of a description will go here.</p>
-              </figure>
-              <ul class="tags">
-                <li>
-                  <a href="#" class="edit-item">Edit</a>
-                </li>
-                <li>
-                  <a href="#">Delete</a>
-                </li>
-                <li>
-                  <a href="#">Mark as Borrowed</a>
-                </li>
-              </ul>
-            </article>
-          </li>
-          <li class="card-dashboard">
-            <article class="profile">
-              <figure>
-                <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>Some Item</figcaption>
-                <p>Up to 120 characters of a description will go here.</p>
-              </figure>
-              <ul class="tags">
-                <li>
-                  <a href="#" class="edit-item">Edit</a>
-                </li>
-                <li>
-                  <a href="#">Delete</a>
-                </li>
-                <li>
-                  <a href="#">Mark as Borrowed</a>
-                </li>
-              </ul>
-            </article>
-          </li>
-          <li class="card-dashboard">
-            <article class="profile">
-              <figure>
-                <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>Some Item</figcaption>
-                <p>Up to 120 characters of a description will go here.</p>
-              </figure>
-              <ul class="tags">
-                <li>
-                  <a href="#" class="edit-item">Edit</a>
-                </li>
-                <li>
-                  <a href="#">Delete</a>
-                </li>
-                <li>
-                  <a href="#">Mark as Borrowed</a>
-                </li>
-              </ul>
-            </article>
-          </li>
-          <li class="card-dashboard">
-            <article class="profile">
-              <figure>
-                <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>Some Item</figcaption>
-                <p>Up to 120 characters of a description will go here.</p>
-              </figure>
-              <ul class="tags">
-                <li>
-                  <a href="#" class="edit-item">Edit</a>
-                </li>
-                <li>
-                  <a href="#">Delete</a>
-                </li>
-                <li>
-                  <a href="#">Mark as Borrowed</a>
-                </li>
-              </ul>
-            </article>
-          </li>
-          <li class="card-dashboard">
-            <article class="profile">
-              <figure>
-                <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>Some Item</figcaption>
-                <p>Up to 120 characters of a description will go here.</p>
-              </figure>
-              <ul class="tags">
-                <li>
-                  <a href="#" class="edit-item">Edit</a>
-                </li>
-                <li>
-                  <a href="#">Delete</a>
-                </li>
-                <li>
-                  <a href="#">Mark as Borrowed</a>
-                </li>
-              </ul>
-            </article>
-          </li>
-          <li class="card-dashboard">
-            <article class="profile">
-              <figure>
-                <img alt="Some Item" src="http://placehold.it/280">
-                <figcaption>Some Item</figcaption>
-                <p>Up to 120 characters of a description will go here.</p>
-              </figure>
-              <ul class="tags">
-                <li>
-                  <a href="#" class="edit-item">Edit</a>
-                </li>
-                <li>
-                  <a href="#">Delete</a>
-                </li>
-                <li>
-                  <a href="#">Mark as Borrowed</a>
-                </li>
-              </ul>
-            </article>
-          </li>
-        </ul>
+      <div class="profiles">
+        <div class="dashboard-content">
+          <ul id="put-items-here" class="cards">
+            <li class="card-dashboard">
+              <article class="profile">
+                <figure>
+                  <img alt="Some Item" src="http://placehold.it/280">
+                  <figcaption>ex. "Folding Table"</figcaption>
+                  <h3>ex. "46327"</h3>
+                  <p>ex. "White plastic table that folds out to be 5ft long. It can sit 6 people around it comfortably."</p>
+                </figure>
+                <ul class="tags">
+                  <li class="edit-item">
+                    <a href="#" >Edit</a>
+                  </li>
+                  <li>
+                    <a href="#">Delete</a>
+                  </li>
+                  <li>
+                    <a href="#" class="mark-as-borrowed">Mark as Borrowed</a>
+                  </li>
+                </ul>
+              </article>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -387,24 +257,24 @@
 </script>
 
 <!-- Dashboard Item template -->
-
 <script id="userItemsDashboard" type="text/x-handlebars-template">
 
   {{#each items}}
     <li class="card-dashboard">
       <article class="profile">
         <figure>
-          <img src={{item_image}}>
-          <figcaption id="item-{{_id}}">{{title}}</figcaption>
+          <p>{{item_image_file_name}}</p>
+           <img src="https://s3.amazonaws.com/wdi-items/items/item_images/000/000/0{{id}}/item_feature/{{item_image_file_name}}">
+          <figcaption id="item-{{id}}">{{title}}</figcaption>
           <h3>{{zipcode}}</h3>
           <p>{{description}}</p>
         </figure>
         <ul class="tags">
           <li>
-            <a href="#" data-itemId='{{_id}}'>Edit</a>
+            <a href="#" class="edit-item" data-itemId='{{id}}'>Edit</a>
           </li>
           <li>
-            <a href="#" data-itemId='{{_id}}'>Delete</a>
+            <a href="#" data-itemId='{{id}}'>Delete</a>
           </li>
           <li>
             <a href="#">Mark as Borrowed</a>

@@ -62,6 +62,17 @@ var api = {
     }, callback);
   },
 
+  listItem: function list(token, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/items/' + id,
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      dataType: 'json'
+    }, callback);
+  },
+
   createItem: function create(item, token, callback) {
     this.ajax({
       method: 'POST',
@@ -194,18 +205,6 @@ $('#create-item').on('submit', function(e){
 
     reader.onload = function(event){
 
-
-    // var newItem = {
-    // item: {
-    //   title: $('#title').val(),
-    //   zipcode: $('#zipcode').val(),
-    //   description: $('#description').val(),
-    //   item_image: event.target.result
-    //   }
-    // };
-
-      // console.log(item);
-      // debugger;
       $.ajax({
         url: 'http://localhost:3000/items',
         method: 'POST',
@@ -268,21 +267,6 @@ $('#create-item').on('submit', function(e){
     var token = user.token;
     api.editItem(item, token, editItemCB);
 
-  //   $.ajax({
-  //     method: 'PATCH',
-  //     url: api.url + '/events/' + eventData.event.id,
-  //     headers: {
-  //       Authorization: 'Token token=' + token
-  //     },
-  //     contentType: 'application/json; charset=utf-8',
-  //     data: JSON.stringify(eventData),
-  //     dataType: 'json'
-  //   })
-  //   .done(function(){
-  //     console.log('updated this event!');
-  //   });
-  //   //api.editEvent(event, token, editEventCB);
-  // });
   });
 
 /*---- Callback Functions ---- */

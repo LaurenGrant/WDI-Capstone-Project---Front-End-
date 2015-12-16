@@ -286,8 +286,9 @@ textarea {
   display: none;
 }
 
-.paperclip {
-  margin-top: 100px;
+.featured-image {
+  width: 20%;
+  height: 20%;
 }
 
 /* Footer */

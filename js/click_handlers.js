@@ -32,33 +32,35 @@ $('.signin-link').click(function() {
   $('.dropdown-menu').show();
 });
 
-// main.js
-$(document).ready(function(){
+// $(document).ready(function(){
 
-  $('#paperclip-form').on('click', function(e){
-    e.preventDefault();
-    // creates a new instance of the FileReader object prototype
-    var reader = new FileReader();
+//   $('#create-item').on('submit', function(e){
+//     e.preventDefault();
+//     var token = user.token;
 
-    //setting a function to be executed every time the reader successfully completes a read operation
-    reader.onload = function(event){
-      // once the data url has been loaded, make the ajax request with the result set as the value to key 'poster'
-      $.ajax({
-        url: 'http://localhost:3000/features',
-        method: 'POST',
-        data: { features: {
-          featuredImage: event.target.result
-        } }
-      }).done(function(response){
+//     var reader = new FileReader();
+//     var newItem = form2object(this);
 
-      }).fail(function(response){
-        console.error('Whoops!');
-      })
-    };
+//     reader.onload = function(event){
+//       newItem.item_image = event.target.result;
 
-    // read the first file of the file input
-    $fileInput = $('#featuredImage');
-    reader.readAsDataURL($fileInput[0].files[0]);
+//       $.ajax({
+//         url: 'http://localhost:3000/items',
+//         method: 'POST',
+//         data: { item: newItem
+//       }, headers: {
+//           Authorization: 'Token token=' + token
+//         }
 
-  });
-});
+//       }).done(function(response){
+
+//       }).fail(function(response){
+//         console.error('Whoops!');
+//       })
+//     };
+
+//     $fileInput = $('#item_image');
+//     reader.readAsDataURL($fileInput[0].files[0]);
+
+//   });
+// });

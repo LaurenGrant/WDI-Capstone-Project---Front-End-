@@ -150,13 +150,14 @@
       Lend</h2>
       <div class="dashboard-post">
         <h2>Add an Item to Loan</h2>
-        <form class="form" id="create-item">
+      <h1> Using Paperclip Over a JSON API </h1>
+        <form id="create-item">
           <p class="title"><input id="title" name="title" placeholder="John Doe"
           type="text"> <label for="name">Posting Title</label></p>
           <p class="zipcode"><input id="zipcode" name="zipcode" placeholder=
           "46327" type="text"> <label for="email">Zip Code</label></p>
-          <!-- <p class="image"><input id="image" name="image" placeholder=
-          "EXAMPLE HERE" type="text"> <label for="image">Upload an Image</label></p> -->
+          <p class="image"><input type="file" id="item_image" name="item_image" placeholder=
+          "EXAMPLE HERE"> <label for="image">Upload an Image</label></p>
           <p class="text"><textarea name="text" id="description"placeholder=
           "Write a Short Description of the Item (120 characters or less)"></textarea></p>
           <p class="submit"><input type="submit" value="Create"></p>
@@ -190,7 +191,7 @@
                   <a href="#">Delete</a>
                 </li>
                 <li>
-                  <a href="#">Mark as Borrowed</a>
+                  <a href="#" class="mark-as-borrowed">Mark as Borrowed</a>
                 </li>
               </ul>
             </article>
@@ -339,15 +340,7 @@
         </ul>
       </div>
     </section>
-    <section class="paperclip">
-      <h1> Using Paperclip Over a JSON API </h1>
-      <form id="paperclip-form">
-        <label> featuredImage
-          <input type="file" id="featuredImage"/>
-        </label>
-        <button id="submit">Upload Image</button>
-      </form>
-    </section>
+
 
 
     <!-- /User Page View -->
@@ -381,26 +374,13 @@
 <!-- Home Page template -->
 <script id="itemsFeatured" type="text/x-handlebars-template">
 
-{{#each items}}
-  <li class="card-dashboard">
-    <article class="profile">
+  {{#each items}}
+    <li class="card-dashboard">
+      <article class="profile">
         <figure>
-          <img alt="{{title}}" src="http://placehold.it/280">
-          <figcaption>{{title}}</figcaption>
-          <h3>{{zipcode}}</h3>
-          <p>{{description}}</p>
+          <img alt=""{{title}}"" src="http://placehold.it/280">
+          <figcaption>"{{title}}"</figcaption>
         </figure>
-        <ul class="tags">
-          <li>
-            <a href="#" data-id = '{{id}}' class="edit-item">Edit</a>
-          </li>
-          <li>
-            <a href="#" data-id = '{{id}}'>Delete</a>
-          </li>
-          <li>
-            <a href="#" data-id = '{{id}}'>Mark as Borrowed</a>
-          </li>
-        </ul>
       </article>
     </li>
   {{/each}}
@@ -414,7 +394,7 @@
     <li class="card-dashboard">
       <article class="profile">
         <figure>
-          <img alt="Some Item" src="http://placehold.it/280">
+          <img src={{item_image}}>
           <figcaption id="item-{{_id}}">{{title}}</figcaption>
           <h3>{{zipcode}}</h3>
           <p>{{description}}</p>
@@ -440,7 +420,7 @@
 
 
 </body>
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
 <script type="text/javascript" src="js/vendor/handlebars-v4.0.5.js"></script>
 <script type="text/javascript" src="js/vendor/jquery-2.1.4.js"></script>
 

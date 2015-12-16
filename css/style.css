@@ -288,7 +288,6 @@ textarea {
 
 .paperclip {
   margin-top: 100px;
-  display: none;
 }
 
 /* Footer */
@@ -300,6 +299,7 @@ footer {
   background-color: #f8f8f8;
   position: relative;
   clear: both;
+  display: none;
 }
 
 .footer-inline {

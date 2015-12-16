@@ -89,6 +89,17 @@ var api = {
     }, callback);
   },
 
+  deleteItem: function(itemId, callback) {
+    this.ajax({
+      method: 'DELETE',
+      url: this.url + '/items/' + itemId,
+      dataType: 'json',
+      xhrFields: {
+        withCredentials: true
+      }
+    }, callback);
+  },
+
 };
 
 // $(document).ready(...
@@ -172,24 +183,76 @@ $(function() {
     api.logout(id, token, callback);
   });
 
-/*---- Click Handlers for List/Create/Edit Items ---- */
+/*---- Click Handlers for List/Create/Edit/Dele Items ---- */
+
+$('#create-item').on('submit', function(e){
+    e.preventDefault();
+    var token = user.token;
+
+    var reader = new FileReader();
+    // var newItem = form2object(this);
+
+    reader.onload = function(event){
+
+
+    // var newItem = {
+    // item: {
+    //   title: $('#title').val(),
+    //   zipcode: $('#zipcode').val(),
+    //   description: $('#description').val(),
+    //   item_image: event.target.result
+    //   }
+    // };
+
+      // console.log(item);
+      // debugger;
+      $.ajax({
+        url: 'http://localhost:3000/items',
+        method: 'POST',
+        data: { item: {
+          title: $('#title').val(),
+          zipcode: $('#zipcode').val(),
+          description: $('#description').val(),
+          item_image: event.target.result
+
+         }
+        }, headers: {
+          Authorization: 'Token token=' + token
+        }
+
+      }).done(function(response){
+
+      }).fail(function(response){
+        console.error('Whoops!');
+      })
+    };
+
+    var $fileInput = $('#item_image');
+    reader.readAsDataURL($fileInput[0].files[0]);
+    // api.createItem(item, token, createItemCB);
+
+  });
+
+
+// $('#create-item').on('submit', function(e) {
+//   e.preventDefault();
+
+  // var item = {
+  //   item: {
+  //     title: $('#title').val(),
+  //     zipcode: $('#zipcode').val(),
+  //     description: $('#description').val()
+  //   }
+  // };
+
+//   var token = user.token;
+//   api.createItem(item, token, createItemCB);
+// });
 
 
 
-$('#create-item').on('submit', function(e) {
-  e.preventDefault();
-  var item = {
-    item: {
-      title: $('#title').val(),
-      zipcode: $('#zipcode').val(),
-      // image: $('#image').val(),
-      description: $('#description').val()
-    }
-  };
 
-  var token = user.token;
-  api.createItem(item, token, createItemCB);
-});
+
 
   $('#edit-item').on('submit', function(e) {
     e.preventDefault();

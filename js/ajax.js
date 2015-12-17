@@ -87,10 +87,10 @@ var api = {
   },
 
 
-  editItem: function (item, token, callback) {
+  editItem: function (itemId, token, callback) {
     this.ajax({
       method: 'PATCH',
-      url: this.url + '/items/' + id,
+      url: this.url + '/items/' + itemId,
       headers: {
         Authorization: 'Token token=' + token
       },
@@ -100,11 +100,14 @@ var api = {
     }, callback);
   },
 
-  deleteItem: function(itemId, callback) {
+  deleteItem: function(itemId, token, callback) {
     this.ajax({
       method: 'DELETE',
       url: this.url + '/items/' + itemId,
-      dataType: 'json',
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      contentType: 'application/json; charset=utf-8',
       xhrFields: {
         withCredentials: true
       }
@@ -194,6 +197,19 @@ $(function() {
     api.logout(id, token, callback);
   });
 
+  $('.dashboard-items').on('click', '#delete-button', function(e) {
+     e.preventDefault();
+     var itemId = $(e.target).data('itemid');
+     api.deleteItem(itemId, user.token, function (err, data){
+      if (err){
+        console.error(err);
+      } else {
+        console.log("DELTETED");
+
+         }
+      });
+    });
+
 /*---- Click Handlers for List/Create/Edit/Dele Items ---- */
 
 $('#create-item').on('submit', function(e){
@@ -235,39 +251,40 @@ $('#create-item').on('submit', function(e){
   });
 
 
-// $('#create-item').on('submit', function(e) {
-//   e.preventDefault();
-
-  // var item = {
-  //   item: {
-  //     title: $('#title').val(),
-  //     zipcode: $('#zipcode').val(),
-  //     description: $('#description').val()
-  //   }
-  // };
-
-//   var token = user.token;
-//   api.createItem(item, token, createItemCB);
-// });
-
-
-
-
-
-
   $('#edit-item').on('submit', function(e) {
     e.preventDefault();
-    var item = {"item":
-      {
-      title: $('#title').val(),
-      zipcode: $('#zipcode').val(),
-      // image: $('#image').val(),
-      description: $('#description').val()
-      }
-    };
-
     var token = user.token;
-    api.editItem(item, token, editItemCB);
+
+    var reader = new FileReader();
+    // var newItem = form2object(this);
+
+    reader.onload = function(event){
+
+      $.ajax({
+        url: 'http://localhost:3000/items',
+        method: 'PATCH',
+        data: { item: {
+          title: $('#title').val(),
+          zipcode: $('#zipcode').val(),
+          description: $('#description').val(),
+          phone_number: $('#phone-number').val(),
+          item_image: event.target.result
+
+         }
+        }, headers: {
+          Authorization: 'Token token=' + token
+        }
+
+      }).done(function(response){
+
+      }).fail(function(response){
+        console.error('Whoops!');
+      })
+    };
+    var $fileInput = $('#item_image');
+    console.log(item_image);
+    reader.readAsDataURL($fileInput[0].files[0]);
+    // api.editItem(item, token, editItemCB);
 
   });
 

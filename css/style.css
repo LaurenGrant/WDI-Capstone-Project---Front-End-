@@ -1,5 +1,6 @@
 body {
   font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+  text-align: center;
 }
 
 /* Navbar */
@@ -128,14 +129,19 @@ header {
 .intro-text p {
   margin: 0 20%;
   font-size: 18px;
+  letter-spacing: 2px;
 }
 
 .intro-text hr {
   margin: 0 20%;
 }
 
+h1, h2, h3 {
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
 .profiles {
-  /*background: #F08604;*/
   padding: 10px;
   text-align: center;
 }

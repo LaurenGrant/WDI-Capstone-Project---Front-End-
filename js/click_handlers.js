@@ -22,12 +22,12 @@ $('.signin-link').click(function() {
   $('.dropdown-menu').show();
 });
 
-// $('.dashboard-items #edit-button').click(function() {
-//   $('.create-form').hide();
-//   $('.edit-form').show();
-//   $('.add-item-here').hide();
-//   $('.edit-item-here').show();
-// });
+$('.dashboard-items').on('click', '#edit-button',function() {
+  $('.create-form').hide();
+  $('.edit-form').show();
+  $('.add-item-here').hide();
+  $('.edit-item-here').show();
+});
 
 // var map = L.map('map').setView([51.505, -0.09], 13);
 

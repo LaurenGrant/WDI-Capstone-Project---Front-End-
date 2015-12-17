@@ -250,7 +250,7 @@ $('#create-item').on('submit', function(e){
   });
 
 
-  $(document).on('click', '#edit-button', function(e) {
+  $('.dashboard-items').on('click', '#edit-button', function(e) {
     var itemId = $(e.target).data('itemid');
     api.listOneItem(itemId, user.token, listOneItemCB);
     console.log('You hit edit');

@@ -62,10 +62,10 @@ var api = {
     }, callback);
   },
 
-  listItem: function list(token, callback) {
+  listOneItem: function list(itemId, token, callback) {
     this.ajax({
       method: 'GET',
-      url: this.url + '/items/' + id,
+      url: this.url + '/items/' + itemId,
       headers: {
         Authorization: 'Token token=' + token
       },
@@ -192,7 +192,6 @@ $(function() {
   $('.logout-link').on('click', function(e) {
     e.preventDefault();
     var token = user.token;
-     // user.token;
     var id = user.id;
     api.logout(id, token, callback);
   });
@@ -251,9 +250,16 @@ $('#create-item').on('submit', function(e){
   });
 
 
-  $('#edit-item').on('submit', function(e) {
-    e.preventDefault();
-    var token = user.token;
+  $(document).on('click', '#edit-button', function(e) {
+    var itemId = $(e.target).data('itemid');
+    api.listOneItem(itemId, user.token, listOneItemCB);
+    console.log('You hit edit');
+    });
+
+    // e.preventDefault();
+    // var token = user.token;
+
+
 
     var reader = new FileReader();
     // var newItem = form2object(this);
@@ -279,7 +285,7 @@ $('#create-item').on('submit', function(e){
 
       }).fail(function(response){
         console.error('Whoops!');
-      })
+      });
     };
     var $fileInput = $('#item_image');
     console.log(item_image);
@@ -313,20 +319,45 @@ $('#create-item').on('submit', function(e){
     };
 
 
-    // $('#itemId').val(data.item.id);
-    // callback(null, data);
-
-
-  var editItemCB = function editItemCB(err, data) {
+  var listOneItemCB = function listOneItemCB(err, data) {
+    debugger;
     if(err) {
       callback(err);
       return;
     }
+    console.log(data);
 
-    $('#itemId').val(data.item.id);
-    callback(null, data);
-  };
+    $('form').loadJSON(data);
+
+    };
+
+
+  // var editItemCB = function editItemCB(err, data) {
+  //   if(err) {
+  //     callback(err);
+  //     return;
+  //   }
+  //   console.log(data);
+
+  //   var editItemsTemplate = Handlebars.compile($("#userItemsDashboard").html());
+  //   var newHTML= editItemsTemplate(data);
+  //   $('#edit-item').html(newHTML);
+  //   };
+
+  //   $('#itemId').val(data.item.id);
+  //   callback(null, data);
+
+
+  // var editItemCB = function editItemCB(err, data) {
+  //   if(err) {
+  //     callback(err);
+  //     return;
+  //   }
+
+  //   $('#itemId').val(data.item.id);
+  //   callback(null, data);
+  // };
 
 
 // DO NOT ERASE
-});
+// });

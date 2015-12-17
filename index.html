@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Cup of Sugar</title>
+   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -58,7 +59,7 @@
           "Enter Password" type="password"> <label for="password">Password</label></p>
           <p class="password_confirmation"><input id="password_confirmation" name="password_confirmation" placeholder=
           "Confirm Password" type="password"> <label for="password_confirmation">Confirm Password</label></p>
-          <p class="submit"><input type="submit" value="Sumbit"></p>
+          <p class="submit login-button-style"><input type="submit" value="Sumbit"></p>
         </form>
         <div class="col-lg-5 col-md-push-1">
           <div class="col-md-12">
@@ -131,8 +132,8 @@
 
     <!-- User Page View -->
 
-    <section class="map-image" id="map">
-      <div class="col-lg-12">
+    <section class="map-image" >
+      <div id="map" class="col-lg-12">
         <h2>Take a Look at Who is Lending Near You</h2>
         <img alt="" src="assets/images/mapbox_placeholder.png">
       </div>
@@ -179,14 +180,15 @@
       </div>
       <div class="profiles">
         <div class="dashboard-content">
-          <div class="dashboard-items">
+          <div class="dashboard-items example-item">
             <ul id="put-items-here" class="cards">
               <li class="card-dashboard">
                 <article class="profile">
                   <figure>
                     <img alt="Some Item" src="http://placehold.it/280">
                     <figcaption>ex. "Folding Table"</figcaption>
-                    <h3>ex. "46327"</h3>
+                    <p>ex. "46327"</p>
+                    <p>ex. "317-555-0121"</p>
                     <p>ex. "White plastic table that folds out to be 5ft long. It can sit 6 people around it comfortably."</p>
                   </figure>
                   <ul class="tags">
@@ -237,6 +239,31 @@
 
 
 <!-- Handlebars Templates -->
+// <script id="editItemsDashboard" type="text/x-handlebars-template">
+// {{#each items}}
+//   <h2 class="edit-item-here">Edit an Item to Loan</h2>
+//         <form id="edit-item" class="edit-form">
+//           <p class="title"><input id="edit-title" name="edit-title" placeholder="Folding Table"
+//           type="text"> <label for="name">Posting Title</label></p>
+//           <p class="zipcode"><input id="edit-zipcode" name="edit-zipcode" placeholder=
+//           "46327" type="text"> <label for="zipcode">Zip Code</label></p>
+//           <p class="phone-number"><input id="edit-phone-number" name="edit-phone-number" placeholder=
+//           "207-441-1126" type="text"> <label for="phone-number">Phone Number</label></p>
+//           <p class="image"><input type="edit-file" id="edit-item_image" name="item_image"> <label for="image">Upload an Image</label></p>
+//           <p class="text"><textarea name="edit-text" id="edit-description"placeholder=
+//           "Write a Short Description of the Item (120 characters or less)"></textarea></p>
+//           <p class="submit"><input type="submit" value="Update"></p>
+//         </form>
+
+// {{/each}}
+
+// </script>
+
+
+
+
+
+
 
 <script id="userItemsDashboard" type="text/x-handlebars-template">
 
@@ -278,6 +305,9 @@
 
 <script type="text/javascript" src="js/vendor/handlebars-v4.0.5.js"></script>
 <script type="text/javascript" src="js/vendor/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="js/vendor/jquery.loadJSON.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
 
 <script type="text/javascript" src="js/ajax.js"></script>
 <script type="text/javascript" src="js/click_handlers.js"></script>

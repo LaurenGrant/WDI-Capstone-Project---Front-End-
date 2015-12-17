@@ -212,6 +212,7 @@ $('#create-item').on('submit', function(e){
           title: $('#title').val(),
           zipcode: $('#zipcode').val(),
           description: $('#description').val(),
+          phone_number: $('#phone-number').val(),
           item_image: event.target.result
 
          }
@@ -227,6 +228,7 @@ $('#create-item').on('submit', function(e){
     };
 
     var $fileInput = $('#item_image');
+    console.log(item_image);
     reader.readAsDataURL($fileInput[0].files[0]);
     // api.createItem(item, token, createItemCB);
 

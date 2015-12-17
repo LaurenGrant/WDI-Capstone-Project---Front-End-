@@ -154,7 +154,8 @@
           <p class="title"><input id="title" name="title" placeholder="Folding Table"
           type="text"> <label for="name">Posting Title</label></p>
           <p class="zipcode"><input id="zipcode" name="zipcode" placeholder=
-          "46327" type="text"> <label for="email">Zip Code</label></p>
+          "46327" type="text"> <label for="zipcode">Zip Code</label></p>
+          <p class="phone-number"><input id="phone-number" name="phone-number" placeholder="207-441-1126" type="text"> <label for="phone-number">Phone Number</label></p>
           <p class="image"><input type="file" id="item_image" name="item_image"> <label for="image">Upload an Image</label></p>
           <p class="text"><textarea name="text" id="description"placeholder=
           "Write a Short Description of the Item (120 characters or less)"></textarea></p>
@@ -165,7 +166,9 @@
           <p class="title"><input id="edit-title" name="edit-title" placeholder="Folding Table"
           type="text"> <label for="name">Posting Title</label></p>
           <p class="zipcode"><input id="edit-zipcode" name="edit-zipcode" placeholder=
-          "46327" type="text"> <label for="email">Zip Code</label></p>
+          "46327" type="text"> <label for="zipcode">Zip Code</label></p>
+          <p class="phone-number"><input id="edit-phone-number" name="edit-phone-number" placeholder=
+          "207-441-1126" type="text"> <label for="phone-number">Phone Number</label></p>
           <p class="image"><input type="edit-file" id="edit-item_image" name="item_image"> <label for="image">Upload an Image</label></p>
           <p class="text"><textarea name="edit-text" id="edit-description"placeholder=
           "Write a Short Description of the Item (120 characters or less)"></textarea></p>
@@ -263,10 +266,10 @@
     <li class="card-dashboard">
       <article class="profile">
         <figure>
-          <p>{{item_image_file_name}}</p>
            <img src="https://s3.amazonaws.com/wdi-items/items/item_images/000/000/0{{id}}/item_feature/{{item_image_file_name}}">
           <figcaption id="item-{{id}}">{{title}}</figcaption>
           <h3>{{zipcode}}</h3>
+          <h3>{{phone_number}}</h3>
           <p>{{description}}</p>
         </figure>
         <ul class="tags">
@@ -274,7 +277,7 @@
             <a href="#" class="edit-item" data-itemId='{{id}}'>Edit</a>
           </li>
           <li>
-            <a href="#" data-itemId='{{id}}'>Delete</a>
+            <a href="#" class="delete-item" data-itemId='{{id}}'>Delete</a>
           </li>
           <li>
             <a href="#">Mark as Borrowed</a>

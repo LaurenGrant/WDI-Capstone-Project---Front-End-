@@ -316,14 +316,13 @@ $('#create-item').on('submit', function(e){
 
 
   var listOneItemCB = function listOneItemCB(err, data) {
-    debugger;
     if(err) {
       callback(err);
       return;
     }
     console.log(data);
 
-    $('form').loadJSON(data);
+    $('#edit-item').loadJSON(data);
 
     };
 

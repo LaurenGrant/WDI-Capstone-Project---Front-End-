@@ -16,13 +16,12 @@
               <a class="dropdown-toggle signin-link" data-toggle="dropdown"
               href="#" id="test">Sign In<strong class="caret"></strong></a>
               <div class="dropdown-menu">
-                <form accept-charset="UTF-8" id="login-form" method="post"
+                <form accept-charset="UTF-8" id="login-form" class="login-form" method="post"
                 name="login-form">
                   <input id="email" name="email" placeholder="Email"
                   style="margin-bottom: 15px;" type="email"> <input id=
                   "password" name="password" placeholder="Password" style=
-                  "margin-bottom: 15px;" type="password"> <input class=
-                  "btn btn-primary btn-block" id="sign-in" type="submit" value=
+                  "margin-bottom: 15px;" type="password"> <input class="sign-in-button" id="sign-in" type="submit" value=
                   "Sign In">
                 </form>
               </div>
@@ -139,8 +138,7 @@
       </div>
     </section>
     <section class="dashboard" id="user-dashboard">
-      <h2>Use This Section to Post, Edit, or Delete Items You Would Like to
-      Lend</h2>
+      <h2>Use This Section to Create, Edit, or Delete Items You Would Like to Lend</h2>
       <div class="dashboard-post">
         <h2 class="add-item-here">Add an Item to Loan</h2>
         <form id="create-item" class="create-form">
@@ -162,7 +160,7 @@
           "46327" type="text"> <label for="zipcode">Zip Code</label></p>
           <p class="phone-number"><input id="edit-phone-number" name="edit-phone-number" placeholder=
           "207-441-1126" type="text"> <label for="phone-number">Phone Number</label></p>
-          <p class="image"><input type="edit-file" id="edit-item_image" name="item_image"> <label for="image">Upload an Image</label></p>
+          <p class="image"><input type="file" id="edit-item_image" name="item_image"> <label for="image">Upload an Image</label></p>
           <p class="text"><textarea name="edit-text" id="edit-description"placeholder=
           "Write a Short Description of the Item (120 characters or less)"></textarea></p>
           <p class="submit"><input type="submit" value="Update"></p>

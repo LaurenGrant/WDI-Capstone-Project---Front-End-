@@ -256,10 +256,6 @@ $('#create-item').on('submit', function(e){
     console.log('You hit edit');
     });
 
-    // e.preventDefault();
-    // var token = user.token;
-
-
 
     var reader = new FileReader();
     // var newItem = form2object(this);

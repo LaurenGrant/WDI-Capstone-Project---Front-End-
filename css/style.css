@@ -127,6 +127,11 @@ header {
   margin-top: 100px;
 }
 
+.intro-text h1 {
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
 .intro-text p {
   margin: 0 20%;
   font-size: 18px;
@@ -171,8 +176,30 @@ h1, h2, h3 {
 }
 
 .card-dashboard img {
-  width:  100px;
-  height: 100px;
+  /*width:  150px;
+  height: 150px;*/
+  -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);
+
+}
+.card-dashboard img:hover
+{
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(2.0);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(2.0);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(2.0);
+    transition: all 200ms ease-in;
+    transform: scale(2.0);
+}
 }
 
 .card article {
@@ -267,7 +294,7 @@ textarea {
 
 .form label {
   margin-left: 10px;
-  color: #999;
+  color: #fff;
   letter-spacing: 2px;
 }
 

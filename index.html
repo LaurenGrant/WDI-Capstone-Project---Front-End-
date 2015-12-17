@@ -238,51 +238,35 @@
 
 <!-- Handlebars Templates -->
 
-<!-- Home Page template -->
-<script id="itemsFeatured" type="text/x-handlebars-template">
-
-  {{#each items}}
-    <li class="card-dashboard">
-      <article class="profile">
-        <figure>
-          <img alt=""{{title}}"" src="http://placehold.it/280">
-          <figcaption>"{{title}}"</figcaption>
-        </figure>
-      </article>
-    </li>
-  {{/each}}
-</script>
-
-<!-- Dashboard Item template -->
 <script id="userItemsDashboard" type="text/x-handlebars-template">
 
   {{#each items}}
-<div class="dashboard-items">
-  <ul id="put-items-here" class="cards">
-    <li class="card-dashboard">
-      <article class="profile">
-        <figure>
-           <img src="https://s3.amazonaws.com/wdi-items/images/{{id}}/item_dashboard/{{item_image_file_name}}">
-          <figcaption id="item-{{id}}">{{title}}</figcaption>
-          <h3>{{zipcode}}</h3>
-          <h3>{{phone_number}}</h3>
-          <p>{{description}}</p>
-        </figure>
-        <ul class="tags">
-          <li>
-            <a href="#" id="edit-button" data-itemId='{{id}}'>Edit</a>
-          </li>
-          <li>
-            <a href="#" id="delete-button" data-itemId='{{id}}'>Delete</a>
-          </li>
-          <li>
-            <a href="#">Mark as Borrowed</a>
-          </li>
-        </ul>
-      </article>
-    </li>
-  </ul>
-</div>
+    <div class="dashboard-items card-dashboard">
+      <ul id="put-items-here" class="cards">
+        <li class="items-list">
+          <article class="profile">
+            <figure>
+               <img src="https://s3.amazonaws.com/wdi-items/images/{{id}}/item_dashboard/{{item_image_file_name}}">
+              <figcaption id="item-{{id}}">{{title}}</figcaption>
+              <p>Zipcode - {{zipcode}}</p>
+              <p>Contact - {{phone_number}}</p>
+              <p>{{description}}</p>
+            </figure>
+            <ul class="tags">
+              <li>
+                <a href="#" id="edit-button" data-itemId='{{id}}'>Edit</a>
+              </li>
+              <li>
+                <a href="#" id="delete-button" data-itemId='{{id}}'>Delete</a>
+              </li>
+              <li>
+                <a href="#">Mark as Borrowed</a>
+              </li>
+            </ul>
+          </article>
+        </li>
+      </ul>
+    </div>
   {{/each}}
 
 </script>

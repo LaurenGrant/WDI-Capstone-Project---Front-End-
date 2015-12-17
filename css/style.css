@@ -153,6 +153,9 @@ header {
 .card-dashboard {
   float: left;
   width: 25%;
+}
+
+.items-list{
   list-style-type: none;
 }
 

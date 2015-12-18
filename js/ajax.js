@@ -8,7 +8,7 @@ var user = {
 
 var api = {
 
-  url: 'https://hidden-island-9314.herokuapp.com',
+  url: 'https://hidden-island-9314.herokuapp.com/',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
@@ -75,7 +75,7 @@ var api = {
   createItem: function create(item, token, callback) {
     this.ajax({
       method: 'POST',
-      url: this.url + '/items',
+      url: this.url + '/items/',
       headers: {
         Authorization: 'Token token=' + token
       },

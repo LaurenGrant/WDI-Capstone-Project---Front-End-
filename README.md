@@ -1,7 +1,7 @@
 # WDI-Capstone-Project---Front-End-
 
 An embedded screenshot of the app
-![alt text][./assets/images/capstone_screen_shot.png]
+![alt text](./assets/images/capstone_screen_shot.png)
 
 Explanations of the technologies used
 A couple paragraphs about the general approach you took

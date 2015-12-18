@@ -75,7 +75,7 @@ var api = {
   createItem: function create(item, token, callback) {
     this.ajax({
       method: 'POST',
-      url: this.url + '/items/',
+      url: this.url + '/items',
       headers: {
         Authorization: 'Token token=' + token
       },

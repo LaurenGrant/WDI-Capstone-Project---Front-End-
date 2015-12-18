@@ -232,7 +232,7 @@ $('#create-item').on('submit', function(e){
     reader.onload = function(event){
 
       $.ajax({
-        url: 'https://hidden-island-9314.herokuapp.com',
+        url: 'https://hidden-island-9314.herokuapp.com/items/',
         method: 'POST',
         data: { item: {
           title: $('#title').val(),

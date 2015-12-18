@@ -232,7 +232,7 @@ $('#create-item').on('submit', function(e){
     reader.onload = function(event){
 
       $.ajax({
-        url: 'http://localhost:3000/items/',
+        url: 'https://hidden-island-9314.herokuapp.com',
         method: 'POST',
         data: { item: {
           title: $('#title').val(),
@@ -271,7 +271,7 @@ $('#create-item').on('submit', function(e){
     reader.onload = function(event){
 
       $.ajax({
-        url: 'http://localhost:3000/items',
+        url: 'https://hidden-island-9314.herokuapp.com',
         method: 'PATCH',
         data: { item: {
           title: $('#title').val(),
@@ -307,7 +307,7 @@ $('#edit-item').on('submit', function(e){
     reader.onload = function(event){
 
       $.ajax({
-        url: 'http://localhost:3000/items/' + itemId,
+        url: 'https://hidden-island-9314.herokuapp.com/' + itemId,
         method: 'PATCH',
         data: { item: {
           title: $('#edit-title').val(),

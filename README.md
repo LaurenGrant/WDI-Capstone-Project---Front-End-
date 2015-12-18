@@ -6,7 +6,15 @@ An embedded screenshot of the app
 Explanations of the technologies used
 A couple paragraphs about the general approach you took
 Installation instructions for any dependencies
-Link to your user stories – who are your users, what do they want, and why?
-Link to your wireframes – sketches of major views / interfaces in your application
-Link to your pitch deck – documentation of your wireframes, user stories, and proposed architecture
+
+User Stories – who are your users, what do they want, and why?
+https://docs.google.com/document/d/1gKVaQ_qrAKuv7ZkTwEdwSC-PF_ItuOLW_WPNQoBydMA/edit
+
+Data Models – who are your users, what do they want, and why?
+https://docs.google.com/document/d/1cI3kMG-GnnqKaSZDCkDyH8xKK75fJ6O1WCxPR6or9mA/edit
+
+Wireframes
+https://github.com/LaurenGrant/WDI-Capstone-Project---Front-End-/blob/master/wire-frame-index.png
+https://github.com/LaurenGrant/WDI-Capstone-Project---Front-End-/blob/master/wire-frame-dashboard.png
+
 Descriptions of any unsolved problems or major hurdles you had to overcome

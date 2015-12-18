@@ -94,7 +94,7 @@ var api = {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify({}),
+      data: JSON.stringify(item),
       dataType: 'json'
     }, callback);
   },
@@ -232,7 +232,7 @@ $('#create-item').on('submit', function(e){
     reader.onload = function(event){
 
       $.ajax({
-        url: 'http://localhost:3000/items',
+        url: 'http://localhost:3000/items/',
         method: 'POST',
         data: { item: {
           title: $('#title').val(),
@@ -256,8 +256,6 @@ $('#create-item').on('submit', function(e){
     var $fileInput = $('#item_image');
     console.log(item_image);
     reader.readAsDataURL($fileInput[0].files[0]);
-    // api.createItem(item, token, createItemCB);
-
   });
 
 
@@ -269,7 +267,6 @@ $('#create-item').on('submit', function(e){
 
 
     var reader = new FileReader();
-    // var newItem = form2object(this);
 
     reader.onload = function(event){
 
@@ -297,7 +294,43 @@ $('#create-item').on('submit', function(e){
     var $fileInput = $('#item_image');
     console.log(item_image);
     reader.readAsDataURL($fileInput[0].files[0]);
-    // api.editItem(item, token, editItemCB);
+
+  });
+
+
+$('#edit-item').on('submit', function(e){
+    e.preventDefault();
+    var token = user.token;
+
+    var reader = new FileReader();
+
+    reader.onload = function(event){
+
+      $.ajax({
+        url: 'http://localhost:3000/items/' + itemId,
+        method: 'PATCH',
+        data: { item: {
+          title: $('#edit-title').val(),
+          zipcode: $('#edit-zipcode').val(),
+          description: $('#edit-description').val(),
+          phone_number: $('#edit-phone-number').val(),
+          item_image: $('#edit-item_image').val()
+
+         }
+        }, headers: {
+          Authorization: 'Token token=' + token
+        }
+
+      }).done(function(response){
+
+      }).fail(function(response){
+        console.error('Whoops!');
+      });
+    };
+
+    var $fileInput = $('#item_image');
+    console.log(item_image);
+    reader.readAsDataURL($fileInput[0].files[0]);
 
   });
 
@@ -327,7 +360,6 @@ $('#create-item').on('submit', function(e){
 
 
   var listOneItemCB = function listOneItemCB(err, data) {
-    debugger;
     if(err) {
       callback(err);
       return;
@@ -340,6 +372,7 @@ $('#create-item').on('submit', function(e){
       $('#edit-title').val(item.title);
       $('#edit-zipcode').val(item.zipcode);
       $('#edit-description').val(item.description);
+      $('#edit-item_image').val(item.item_image);
     };
 
 

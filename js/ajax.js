@@ -307,7 +307,7 @@ $('#edit-item').on('submit', function(e){
     reader.onload = function(event){
 
       $.ajax({
-        url: 'https://hidden-island-9314.herokuapp.com/' + itemId,
+        url: 'https://hidden-island-9314.herokuapp.com' + itemId,
         method: 'PATCH',
         data: { item: {
           title: $('#edit-title').val(),

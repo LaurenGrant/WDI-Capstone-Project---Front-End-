@@ -8,7 +8,7 @@ var user = {
 
 var api = {
 
-  url: 'http://localhost:3000',
+  url: 'https://hidden-island-9314.herokuapp.com',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {

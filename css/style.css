@@ -200,8 +200,8 @@ h1, h2, h3 {
     transform: scale(1);
 
 }
-.card-dashboard img:hover
-{
+
+.card-dashboard img:hover {
     z-index: 2;
     -webkit-transition: all 200ms ease-in;
     -webkit-transform: scale(1.7);
@@ -211,7 +211,6 @@ h1, h2, h3 {
     -moz-transform: scale(1.7);
     transition: all 200ms ease-in;
     transform: scale(1.7);
-}
 }
 
 .card article {

@@ -40,14 +40,13 @@ var api = {
     }, callback);
   },
 
-  logout: function logout(id, token, callback) {
-    this.ajax({
-      method: 'DELETE',
-      url: this.url + '/logout/' + id,
+  logout: function logout(userId, token, callback) {
+      this.ajax({
+        method: 'DELETE',
+        url: this.url + '/logout/' + userId,
       headers: {
         Authorization:'Token token=' + token
       },
-      dataType: 'json'
     }, callback);
   },
 
@@ -190,11 +189,23 @@ $(function() {
   });
 
   $('.logout-link').on('click', function(e) {
-    e.preventDefault();
-    var token = user.token;
-    var id = user.id;
-    api.logout(id, token, callback);
+      e.preventDefault();
+      var token = user.token;
+      var userId = user.id;
+      api.logout(userId, token, callback);
+    });
+
+    $('.logout-link').click(function() {
+      $('#hero').show();
+      $('#loan-items-examples').show();
+      $('#user-dashboard').hide();
+      $('#map').hide();
+      $('#register-prompt').show();
+      $('#signin-prompt').show();
+      $('.logout-link').hide();
+      $('.logout-link').hide();
   });
+
 
   $('.dashboard-items').on('click', '#delete-button', function(e) {
      e.preventDefault();
@@ -316,14 +327,19 @@ $('#create-item').on('submit', function(e){
 
 
   var listOneItemCB = function listOneItemCB(err, data) {
+    debugger;
     if(err) {
       callback(err);
       return;
     }
     console.log(data);
 
-    $('#edit-item').loadJSON(data);
-
+    //$('#edit-item').loadJSON(data.item);
+    var item = data.item;
+      $('#edit-phone-number').val(item.phone_number);
+      $('#edit-title').val(item.title);
+      $('#edit-zipcode').val(item.zipcode);
+      $('#edit-description').val(item.description);
     };
 
 

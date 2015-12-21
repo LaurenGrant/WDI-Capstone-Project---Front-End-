@@ -1,9 +1,12 @@
 # WDI-Capstone-Project---Front-End-
 
-An embedded screenshot of the app
-![alt text](./assets/images/capstone_screen_shot.png)
+A Cup of Sugar is a web application that is designed to allow users to lend and borrow their neighbor's items.
+![screenshot](https://github.com/LaurenGrant/WDI-Capstone-Project---Front-End-/blob/master/capstone_screen_shot.png)
 
-Explanations of the technologies used
+The site allows user to create a listing for the items they are willing to lend out. The next feature I would love to add is a Google Maps api that will show all locations of where people post their items. 
+
+On the front end of the application I used HTML, CSS, Javascrtipt and utilized the jQuery and Handlebars libraries. 
+
 A couple paragraphs about the general approach you took
 Installation instructions for any dependencies
 

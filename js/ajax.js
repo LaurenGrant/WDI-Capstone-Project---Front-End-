@@ -215,10 +215,11 @@ $(function() {
         console.error(err);
       } else {
         console.log("DELTETED");
-
+        getCreatedItemCb();
          }
       });
     });
+
 
 /*---- Click Handlers for List/Create/Edit/Dele Items ---- */
 
@@ -232,7 +233,7 @@ $('#create-item').on('submit', function(e){
     reader.onload = function(event){
 
       $.ajax({
-        url: 'https://hidden-island-9314.herokuapp.com/items/',
+        url: 'https://hidden-island-9314.herokuapp.com/items',
         method: 'POST',
         data: { item: {
           title: $('#title').val(),
@@ -247,7 +248,7 @@ $('#create-item').on('submit', function(e){
         }
 
       }).done(function(response){
-
+        getCreatedItemCb();
       }).fail(function(response){
         console.error('Whoops!');
       })
@@ -256,7 +257,24 @@ $('#create-item').on('submit', function(e){
     var $fileInput = $('#item_image');
     console.log(item_image);
     reader.readAsDataURL($fileInput[0].files[0]);
+
   });
+
+    var getCreatedItemCb = function(){
+          var token = user.token;
+          api.listItems(token, function(err, data) {
+              console.log(data);
+              if (err) {
+                console.log(err);
+                return;
+              } else {
+                var templateTarget = $('#userItemsDashboard').html();
+                var template = Handlebars.compile(templateTarget);
+                var content = template(data);
+                $('#put-items-here').html(content);
+                }
+            });
+        };
 
 
   $('.dashboard-items').on('click', '#edit-button', function(e) {
@@ -271,7 +289,7 @@ $('#create-item').on('submit', function(e){
     reader.onload = function(event){
 
       $.ajax({
-        url: 'https://hidden-island-9314.herokuapp.com',
+        url: 'https://hidden-island-9314.herokuapp.com/items',
         method: 'PATCH',
         data: { item: {
           title: $('#title').val(),
@@ -307,7 +325,7 @@ $('#edit-item').on('submit', function(e){
     reader.onload = function(event){
 
       $.ajax({
-        url: 'https://hidden-island-9314.herokuapp.com' + itemId,
+        url: 'https://hidden-island-9314.herokuapp.com/items/' + itemId,
         method: 'PATCH',
         data: { item: {
           title: $('#edit-title').val(),
